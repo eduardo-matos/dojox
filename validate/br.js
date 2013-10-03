@@ -188,21 +188,25 @@ br.isValidCpf = function(/*String*/value){
 			dv.push(parseInt(value.charAt(i), 10));
 		}
 		
-		var base = [9,8,7,6,5,4,3,2,1].reverse();
+		var base = [1,2,3,4,5,6,7,8,9];
 		var sum = 0;
 		for(i = 0; i < cpf.length; i++){
-			sum += cpf[i] * base[i];
+			sum += cpf[i] * (10 - i);
 		}
-		var dv0 = sum % 11;
+		var dv0 = 11 - (sum % 11);
+
+		dv0 = (dv0 === 10 || dv0 === 11)? 0: dv0;
+
 		if(dv0 == dv[0]){
 			// Still seems valid, keep going.
 			sum = 0;
-			base = [9,8,7,6,5,4,3,2,1,0].reverse();
+			base = [0,1,2,3,4,5,6,7,8,9];
 			cpf.push(dv0);
 			for(i = 0; i < cpf.length; i++){
-				sum += cpf[i] * base[i];
+				sum += cpf[i] * (11 - i);
 			}
-			var dv1 = sum % 11;
+			var dv1 = 11 - (sum % 11);
+			dv1 = (dv1 === 10 || dv1 === 11)? 0: dv1;
 			if(dv1 === dv[1]){
 				// Whew, looks valid.
 				return true;

@@ -76,6 +76,17 @@ doh.register("dojox.validate.tests.br",[
 			doh.assertTrue(br.isValidCpf('271034755-55'), "4 Checking #########-## format");
 			doh.assertTrue(br.isValidCpf('27103475555'), "4 Checking ########### format");
 			doh.assertTrue(br.isValidCpf(27103475555), "4 Checking numeric ########### format");
+
+			doh.assertTrue(br.isValidCpf('275.454.657-09'), "5 Checking ###.###.###-## format");
+			doh.assertTrue(br.isValidCpf('275454657-09'), "5 Checking #########-## format");
+			doh.assertTrue(br.isValidCpf('27545465709'), "5 Checking ########### format");
+			doh.assertTrue(br.isValidCpf(27545465709), "5 Checking numeric ########### format");
+
+			doh.assertTrue(br.isValidCpf('511.673.221-50'), "6 Checking numeric ########### format");
+			doh.assertTrue(br.isValidCpf('511673221-50'), "6 Checking numeric ########### format");
+			doh.assertTrue(br.isValidCpf('51167322150'), "6 Checking numeric ########### format");
+			doh.assertTrue(br.isValidCpf(51167322150), "6 Checking numeric ########### format");
+
 		}
 	},
 	{
