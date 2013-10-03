@@ -168,16 +168,18 @@ br.isValidCpf = function(/*String*/value){
 		var dv = [];
 		var i, j, tmp;
 
-		// Check for obvious bad combos
-		// all 0s to all 9's.
-		for(i = 0; i < 10; i++){
-			tmp = "";
-			for(j = 0; j < value.length; j++){
-				tmp += "" + i;
-			}
-			if(value === tmp){
-				return false;
-			}
+		if (value.length != 11 ||
+			value == "00000000000" ||
+			value == "11111111111" ||
+			value == "22222222222" ||
+			value == "33333333333" ||
+			value == "44444444444" ||
+			value == "55555555555" ||
+			value == "66666666666" ||
+			value == "77777777777" ||
+			value == "88888888888" ||
+			value == "99999999999") {
+			return false;
 		}
 
 		//Split out the DV from the main number.

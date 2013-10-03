@@ -87,6 +87,17 @@ doh.register("dojox.validate.tests.br",[
 			doh.assertTrue(br.isValidCpf('51167322150'), "6 Checking numeric ########### format");
 			doh.assertTrue(br.isValidCpf(51167322150), "6 Checking numeric ########### format");
 
+			doh.assertFalse(br.isValidCpf(00000000000), "edge case format 00000000000");
+			doh.assertFalse(br.isValidCpf(11111111111), "edge case format 11111111111");
+			doh.assertFalse(br.isValidCpf(22222222222), "edge case format 22222222222");
+			doh.assertFalse(br.isValidCpf(33333333333), "edge case format 33333333333");
+			doh.assertFalse(br.isValidCpf(44444444444), "edge case format 44444444444");
+			doh.assertFalse(br.isValidCpf(55555555555), "edge case format 55555555555");
+			doh.assertFalse(br.isValidCpf(66666666666), "edge case format 66666666666");
+			doh.assertFalse(br.isValidCpf(77777777777), "edge case format 77777777777");
+			doh.assertFalse(br.isValidCpf(88888888888), "edge case format 88888888888");
+			doh.assertFalse(br.isValidCpf(99999999999), "edge case format 99999999999");
+
 		}
 	},
 	{
